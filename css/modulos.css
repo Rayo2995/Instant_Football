@@ -791,3 +791,17 @@
 }
 .login-volver:hover { color: rgba(255,255,255,0.6); }
 
+.pos-1{
+  background: gold;
+  color: #111;
+}
+
+.pos-2{
+  background: silver;
+  color: #111;
+}
+
+.pos-3{
+  background: #cd7f32;
+  color: white;
+}
