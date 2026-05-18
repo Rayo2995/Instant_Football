@@ -3,7 +3,7 @@ require_once '../../config/auth.php';
 
 // Si ya está logueado redirigir al inicio
 if (isAdmin()) {
-    header('Location: /Instant_Football/index.php');
+    header('Location: /index.php');
     exit;
 }
 
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['admin_id']     = $admin['id_admin'];
         $_SESSION['admin_nombre'] = $admin['nombre'];
         $_SESSION['admin_usuario']= $admin['usuario'];
-        header('Location: /Instant_Football/index.php');
+        header('Location: /index.php');
         exit;
     } else {
         $error = 'Usuario o contraseña incorrectos.';

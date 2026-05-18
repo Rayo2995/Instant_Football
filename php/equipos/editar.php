@@ -122,7 +122,7 @@
       <div class="form-group">
         <label>Escudo del equipo</label>
         <?php if ($equipo['escudo']): ?>
-          <img src="/Instant_Football/img/escudos/<?= htmlspecialchars($equipo['escudo']) ?>"
+          <img src="img/escudos/<?= htmlspecialchars($equipo['escudo']) ?>"
                alt="Escudo actual" id="preview"
                style="max-height:100px; border-radius:12px; margin-bottom:0.75rem; display:block;">
         <?php else: ?>
