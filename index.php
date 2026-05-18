@@ -3,7 +3,7 @@
   $equipos   = $pdo->query("SELECT COUNT(*) FROM equipos")->fetchColumn();
   $partidos  = $pdo->query("SELECT COUNT(*) FROM partidos")->fetchColumn();
   $jugadores = $pdo->query("SELECT COUNT(*) FROM jugadores")->fetchColumn();
-  $goles     = $pdo->query("SELECT COALESCE(SUM(goles_local + goles_visitante), 0) FROM partidos")->fetchColumn();
+  $goles = $pdo->query("SELECT COALESCE(SUM(goles_local),0) + COALESCE(SUM(goles_visitante),0)FROM partidos")->fetchColumn();
   $proximo   = $pdo->query("
     SELECT p.fecha, p.estadio,
            e1.nombre AS local, e2.nombre AS visitante
