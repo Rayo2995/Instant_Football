@@ -44,11 +44,11 @@
       <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">
         <?= $_SESSION['admin_nombre'] ?>
       </span>
-      <a href="/Instant_Football/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
+      <a href="/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
         Cerrar sesión
       </a>
     <?php else: ?>
-      <a href="/Instant_Football/php/admin/login.php" class="nav-cta">Admin</a>
+      <a href="/php/admin/login.php" class="nav-cta">Admin</a>
     <?php endif; ?>
   </header>
 </div>

@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noticias — LigaPro</title>
+  <title>Noticias — InstantFootball</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
@@ -36,11 +36,11 @@
         <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">
           <?= $_SESSION['admin_nombre'] ?>
         </span>
-        <a href="/Instant_Football/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
+        <a href="/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
           Cerrar sesión
         </a>
       <?php else: ?>
-        <a href="/Instant_Football/php/admin/login.php" class="nav-cta">Admin</a>
+        <a href="/php/admin/login.php" class="nav-cta">Admin</a>
       <?php endif; ?>
   </header>
 </div>
