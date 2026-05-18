@@ -80,7 +80,7 @@
   </div>
   <div class="stat-card glass">
     <div class="stat-num"><?= $goles ?></div>
-    <div class="stat-lbl">Goles</div>
+    <div class="stat-lbl">Goles de la temporada 2026</div>
   </div>
 </div>
 
