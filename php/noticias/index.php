@@ -79,7 +79,7 @@
 
           <?php if ($n['imagen']): ?>
             <div class="noticia-img">
-              <img src="/Instant_Football/img/noticias/<?= htmlspecialchars($n['imagen']) ?>" alt="<?= htmlspecialchars($n['titulo']) ?>">
+              <img src="/img/noticias/<?= htmlspecialchars($n['imagen']) ?>" alt="<?= htmlspecialchars($n['titulo']) ?>">
             </div>
           <?php else: ?>
             <div class="noticia-img noticia-img-placeholder">📰</div>

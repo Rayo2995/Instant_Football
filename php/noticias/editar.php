@@ -107,7 +107,7 @@
       <div class="form-group">
         <label>Imagen</label>
         <?php if ($noticia['imagen']): ?>
-          <img src="/Instant_Football/img/noticias/<?= htmlspecialchars($noticia['imagen']) ?>"
+          <img src="/img/noticias/<?= htmlspecialchars($noticia['imagen']) ?>"
                id="preview"
                style="max-height:160px;border-radius:14px;object-fit:cover;width:100%;margin-bottom:0.75rem;display:block;">
         <?php else: ?>
