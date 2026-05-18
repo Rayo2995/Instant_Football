@@ -20,7 +20,8 @@
                   unlink(__DIR__ . '/../../img/noticias/' . $imagen);
               }
               $filename = uniqid('noticia_') . '.' . $ext;
-              if (move_uploaded_file($_FILES['imagen']['tmp_name'], __DIR__ . '/../../img/noticias/' . $filename)) {
+              $destino  = __DIR__ . '/../../img/noticias/' . $filename;
+              if (move_uploaded_file($_FILES['imagen']['tmp_name'], $destino)) {
                   $imagen = $filename;
               }
           }
@@ -62,7 +63,16 @@
       <a href="../tabla/index.php">Tabla</a>
       <a href="index.php" class="active">Noticias</a>
     </nav>
-    <a href="../admin/login.php" class="nav-cta">Admin</a>
+    <?php if (isAdmin()): ?>
+      <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">
+        👤 <?= $_SESSION['admin_nombre'] ?>
+      </span>
+      <a href="/Instant_Football/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
+        Cerrar sesión
+      </a>
+    <?php else: ?>
+      <a href="/Instant_Football/php/admin/login.php" class="nav-cta">Admin</a>
+    <?php endif; ?>
   </header>
 </div>
 
@@ -101,16 +111,11 @@
                id="preview"
                style="max-height:160px;border-radius:14px;object-fit:cover;width:100%;margin-bottom:0.75rem;display:block;">
         <?php else: ?>
-          <img id="preview" src="" alt="" style="display:none;max-height:160px;border-radius:14px;margin-bottom:0.75rem;">
+          <img id="preview" src="" alt=""
+               style="display:none;max-height:160px;border-radius:14px;margin-bottom:0.75rem;width:100%;object-fit:cover;">
         <?php endif; ?>
-        <div class="file-drop">
-          <input type="file" name="imagen" id="imagenInput" accept="image/*">
-          <div class="file-drop-content">
-            <span>🖼️</span>
-            <p>Cambiar imagen</p>
-            <small>JPG, PNG, WEBP</small>
-          </div>
-        </div>
+        <input type="file" name="imagen" id="imagenInput" accept="image/*"
+               style="color:rgba(255,255,255,0.6);padding:0.5rem 0;">
       </div>
 
       <div class="form-actions">
@@ -123,6 +128,7 @@
 
 </main>
 
+<script src="../../js/main.js"></script>
 <script>
   const input   = document.getElementById('imagenInput');
   const preview = document.getElementById('preview');

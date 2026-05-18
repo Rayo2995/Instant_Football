@@ -45,7 +45,7 @@
 
 <div class="topbar-wrap">
   <header class="topbar">
-    <a href="../../index.php" class="logo"><em>Instant</em>Fooball</a>
+    <a href="../../index.php" class="logo"><em>Instant</em>Football</a>
     <nav>
       <a href="../../index.php">Inicio</a>
       <a href="../equipos/index.php">Equipos</a>
@@ -54,7 +54,16 @@
       <a href="../tabla/index.php">Tabla</a>
       <a href="index.php" class="active">Noticias</a>
     </nav>
-    <a href="../admin/login.php" class="nav-cta">Admin</a>
+    <?php if (isAdmin()): ?>
+      <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">
+        👤 <?= $_SESSION['admin_nombre'] ?>
+      </span>
+      <a href="/Instant_Football/php/admin/logout.php" class="nav-cta" style="background:rgba(255,255,255,0.1);">
+        Cerrar sesión
+      </a>
+    <?php else: ?>
+      <a href="/Instant_Football/php/admin/login.php" class="nav-cta">Admin</a>
+    <?php endif; ?>
   </header>
 </div>
 
@@ -90,15 +99,10 @@
 
       <div class="form-group">
         <label>Imagen <small style="text-transform:none;letter-spacing:0">(opcional)</small></label>
-        <div class="file-drop">
-          <input type="file" name="imagen" id="imagenInput" accept="image/*">
-          <div class="file-drop-content">
-            <span>🖼️</span>
-            <p>Haz clic o arrastra una imagen</p>
-            <small>JPG, PNG, WEBP</small>
-          </div>
-        </div>
-        <img id="preview" src="" alt="" style="display:none;margin-top:1rem;max-height:160px;border-radius:14px;object-fit:cover;width:100%;">
+        <input type="file" name="imagen" id="imagenInput" accept="image/*"
+               style="color:rgba(255,255,255,0.6);padding:0.5rem 0;">
+        <img id="preview" src="" alt=""
+             style="display:none;margin-top:1rem;max-height:160px;border-radius:14px;object-fit:cover;width:100%;">
       </div>
 
       <div class="form-actions">
