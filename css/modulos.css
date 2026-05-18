@@ -1,0 +1,793 @@
+/* =============================================
+   MÓDULOS GENERALES
+   ============================================= */
+.modulo-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.modulo-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modulo-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  color: #fff;
+  line-height: 1;
+}
+
+.modulo-sub {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.3rem;
+}
+
+/* =============================================
+   BOTONES
+   ============================================= */
+.btn-red {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #e8192c, #b00d1a);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+.btn-red:hover { opacity: 0.85; }
+
+.btn-outline {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-outline:hover { color: #fff; border-color: rgba(255,255,255,0.35); }
+
+.btn-icon {
+  width: 36px; height: 36px;
+  border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+.btn-edit:hover { background: rgba(30,80,220,0.25); border-color: rgba(80,130,255,0.4); }
+.btn-del:hover  { background: rgba(232,25,44,0.25); border-color: rgba(232,25,44,0.4); }
+
+/* =============================================
+   ALERTAS
+   ============================================= */
+.alerta {
+  padding: 0.9rem 1.2rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.alerta-ok    { background: rgba(30,180,80,0.15);  border: 1px solid rgba(30,180,80,0.3);  color: #6effa0; }
+.alerta-error { background: rgba(232,25,44,0.15);  border: 1px solid rgba(232,25,44,0.3);  color: #ff8090; }
+
+/* =============================================
+   EMPTY STATE
+   ============================================= */
+.empty-state {
+  border-radius: 24px;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.empty-state span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+.empty-state p { color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+
+/* =============================================
+   GRID DE CARDS
+   ============================================= */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* =============================================
+   EQUIPOS CARDS
+   ============================================= */
+.equipo-card {
+  border-radius: 24px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.equipo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(232,25,44,0.15);
+}
+
+.equipo-escudo {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.equipo-escudo img { width: 100%; height: 100%; object-fit: cover; }
+.escudo-placeholder { font-size: 1.8rem; }
+
+.equipo-info { flex: 1; min-width: 0; }
+.equipo-info h2 {
+  font-size: 1rem; font-weight: 600; color: #fff;
+  margin-bottom: 0.3rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.equipo-ciudad, .equipo-dt {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.15rem;
+}
+
+.equipo-acciones { display: flex; gap: 0.5rem; flex-shrink: 0; }
+
+/* =============================================
+   JUGADORES CARDS
+   ============================================= */
+.jugador-card {
+  border-radius: 28px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.jugador-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(232,25,44,0.15);
+}
+
+.jugador-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.jugador-avatar {
+  width: 52px; height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(232,25,44,0.25), rgba(180,10,20,0.1));
+  border: 1px solid rgba(232,25,44,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  color: #e8192c;
+  flex-shrink: 0;
+}
+
+.jugador-acciones { display: flex; gap: 0.4rem; }
+
+.jugador-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jugador-nombre {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.jugador-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+/* Badge posición */
+.badge-pos {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-portero       { background: rgba(80,120,255,0.15); border: 1px solid rgba(80,120,255,0.3);  color: #7aaeff; }
+.badge-defensa       { background: rgba(30,180,80,0.15);  border: 1px solid rgba(30,180,80,0.3);   color: #6effa0; }
+.badge-mediocampista { background: rgba(255,180,0,0.15);  border: 1px solid rgba(255,180,0,0.3);   color: #ffd76e; }
+.badge-delantero     { background: rgba(232,25,44,0.15);  border: 1px solid rgba(232,25,44,0.3);   color: #ff8090; }
+.badge-otro          { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+.badge-equipo {
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+
+/* Stats dentro de jugador card */
+.jugador-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.jugador-stat { text-align: center; flex: 1; }
+.jugador-stat-divider {
+  width: 1px; height: 32px;
+  background: rgba(255,255,255,0.08);
+}
+.jstat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: block;
+  color: rgba(255,255,255,0.55);
+}
+.jstat-num.red  { color: #e8192c; }
+.jstat-num.blue { color: #4f8aff; }
+.jstat-lbl {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* =============================================
+   FILTRO BAR
+   ============================================= */
+.filtro-bar {
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top: 1px solid rgba(255,255,255,0.22);
+}
+.filtro-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+.filtro-chips { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.chip {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.2s;
+}
+.chip:hover { color: #fff; background: rgba(255,255,255,0.12); }
+.chip-active {
+  color: #fff;
+  background: rgba(232,25,44,0.2);
+  border-color: rgba(232,25,44,0.45);
+}
+
+/* =============================================
+   TABLA
+   ============================================= */
+.tabla-wrap { border-radius: 24px; overflow: hidden; }
+.tabla { width: 100%; border-collapse: collapse; }
+.tabla thead tr {
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.tabla th {
+  padding: 1rem 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-align: left;
+}
+.tabla td {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.8);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.tabla tbody tr:hover { background: rgba(255,255,255,0.03); }
+.tabla tbody tr:last-child td { border-bottom: none; }
+.td-num   { color: rgba(255,255,255,0.25); font-size: 0.8rem; }
+.td-nombre { font-weight: 600; color: #fff; }
+.td-stat  { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #e8192c; }
+.acciones-row { display: flex; gap: 0.4rem; }
+
+/* =============================================
+   FORMULARIOS
+   ============================================= */
+.form-card {
+  border-radius: 28px;
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 0.5rem;
+}
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(232,25,44,0.5);
+}
+.form-group select option { background: #0d1520; }
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.file-drop {
+  position: relative;
+  border: 1.5px dashed rgba(255,255,255,0.18);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.file-drop:hover { border-color: rgba(232,25,44,0.45); }
+.file-drop input[type="file"] {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  opacity: 0; cursor: pointer;
+}
+.file-drop-content span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+.file-drop-content p { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0.25rem; }
+.file-drop-content small { font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* =============================================
+   RANKINGS GOLEADORES
+   ============================================= */
+.rankings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.ranking-card { border-radius: 24px; padding: 1.5rem; }
+.ranking-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.ranking-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.ranking-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 14px;
+  transition: background 0.2s;
+}
+.ranking-row:hover { background: rgba(255,255,255,0.04); }
+.ranking-top { background: rgba(232,25,44,0.08); border: 1px solid rgba(232,25,44,0.2); }
+.ranking-pos { font-size: 1.1rem; width: 28px; text-align: center; flex-shrink: 0; }
+.ranking-info { flex: 1; min-width: 0; }
+.ranking-nombre { display: block; font-weight: 600; font-size: 0.9rem; color: #fff; }
+.ranking-equipo { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
+.ranking-stat {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ranking-stat small {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.ranking-stat.red  { color: #e8192c; }
+.ranking-stat.blue { color: #4f8aff; }
+
+
+/* =============================================
+   PARTIDOS
+   ============================================= */
+.partidos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.partido-card {
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateZ(0);
+}
+.partido-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,25,44,0.12);
+}
+
+.partido-fecha {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.partido-enfrentamiento {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.partido-equipo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  flex: 1;
+  text-align: right;
+}
+.partido-visitante { text-align: left; }
+.partido-equipo.ganador { color: #fff; }
+
+.partido-marcador { text-align: center; flex-shrink: 0; }
+
+.marcador {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+
+.marcador-vs {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.2);
+  display: block;
+}
+
+.resultado-badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  margin-top: 0.3rem;
+  display: inline-block;
+}
+.badge-empate {
+  background: rgba(255,180,0,0.15);
+  border: 1px solid rgba(255,180,0,0.3);
+  color: #ffd76e;
+}
+
+.partido-acciones {
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+/* Preview enfrentamiento en formulario */
+.partido-preview-form {
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+}
+.prev-vs {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.2);
+}
+
+/* =============================================
+   TABLA DE POSICIONES
+   ============================================= */
+.fila-lider { background: rgba(232,25,44,0.08); }
+.fila-top   { background: rgba(255,255,255,0.03); }
+
+.pos-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+}
+
+.td-v { color: #6effa0; font-weight: 600; }
+.td-d { color: #ff8090; font-weight: 600; }
+
+.dg {
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+}
+.dg-pos { color: #6effa0; background: rgba(30,180,80,0.1); }
+.dg-neg { color: #ff8090; background: rgba(232,25,44,0.1); }
+.dg-neu { color: rgba(255,255,255,0.35); }
+
+.pts {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  color: #e8192c;
+}
+
+.tabla-leyenda {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  flex-wrap: wrap;
+}
+.leyenda-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+}
+.leyenda-dot {
+  width: 10px; height: 10px;
+  border-radius: 3px;
+}
+.dot-lider { background: rgba(232,25,44,0.5); }
+.dot-top   { background: rgba(255,255,255,0.15); }
+.leyenda-sep { color: rgba(255,255,255,0.15); }
+.leyenda-info {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* =============================================
+   NOTICIAS
+   ============================================= */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.noticia-card {
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  transform: translateZ(0);
+  will-change: transform;
+}
+.noticia-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(232,25,44,0.15);
+}
+
+.noticia-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.noticia-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.noticia-card:hover .noticia-img img { transform: scale(1.04); }
+.noticia-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.noticia-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.noticia-fecha {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.noticia-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
+.noticia-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.noticia-acciones {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+
+/* =============================================
+   LOGIN
+   ============================================= */
+.login-wrap {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-card {
+  border-radius: 32px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.login-logo em { color: #e8192c; font-style: normal; }
+
+.login-titulo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.login-sub {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.login-volver {
+  display: block;
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.login-volver:hover { color: rgba(255,255,255,0.6); }
+
